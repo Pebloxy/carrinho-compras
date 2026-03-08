@@ -11,6 +11,19 @@ function adicionar() {
   //quebra o produtoCompleto para pegar somente o valor
   let valor = produtoCompleto.value.split('R$')[1];
 
+ // Verificar se o produto selecionado é válido
+    if (!produto || produto.trim() === "") {
+        alert("Selecione um produto válido.");
+        return;
+    }
+
+
+    // Verificar se a quantidade inserida é válida
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert("Insira uma quantidade válida.");
+        return;
+    }
+
   //calcular o preço/subtotal, porém se o consumidor não especificar a quantidade, a própria será 1
   if (!quantidade) {
     quantidade = 1;
