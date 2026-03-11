@@ -1,5 +1,5 @@
 // guarda os itens do carrinho { nome, preco, quantidade }
-let subtotais = [0];
+let subtotais = [];
 limpar();
 
 function adicionar() {
@@ -12,16 +12,18 @@ function adicionar() {
   let valor = produtoCompleto.value.split('R$')[1];
 
  // Verificar se o produto selecionado é válido
-    if (!produto || produto.trim() === "") {
-        alert("Selecione um produto válido.");
-        return;
-    }
+    if (!produtoCompleto.value || produtoCompleto.value.trim() === "") {
+    alert("Selecione um produto válido.");
+    return;
+  }
 
 
     // Verificar se a quantidade inserida é válida
-    if (isNaN(quantidade) || quantidade <= 0) {
+    if (quantidade < 0) {
         alert("Insira uma quantidade válida.");
         return;
+    } else if (isNaN(quantidade) || quantidade == 0) {
+      quantidade = 1
     }
 
   //calcular o preço/subtotal, porém se o consumidor não especificar a quantidade, a própria será 1
